@@ -18,7 +18,7 @@ import Login from './src/screens/Login';
 const Stack = createStackNavigator();
 const Navigation = () => {
   return (
-    <Stack.Navigator initialRouteName="login">
+    <Stack.Navigator initialRouteName="signup">
       <Stack.Screen name="login" component={Login} />
       <Stack.Screen name="signup" component={Signup} />
     </Stack.Navigator>
@@ -29,12 +29,9 @@ const Navigation = () => {
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="green" />
-      <NavigationContainer>
-        <Navigation />
-      </NavigationContainer>
-    </View>
+    <NavigationContainer>
+      <Navigation />
+    </NavigationContainer>
   );
 };
 

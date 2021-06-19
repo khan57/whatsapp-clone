@@ -7,16 +7,20 @@ import {
   TextInput,
   Button,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview';
-export default function Signup() {
+export default function Signup(props) {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [image, setImage] = useState(null);
   const [showNext, setShowNext] = useState(null);
+  useEffect(() => {
+    // alert('Signup called');
+  }, []);
   return (
-    <KeyboardAwareScrollView>
+    <ScrollView style={styles.container}>
       <View style={styles.box1}>
         <Text style={styles.text}>Welcome to Whatsapp 5.0</Text>
         <Image
@@ -76,17 +80,21 @@ export default function Signup() {
             </View>
 
             <Button title="Signup" style={styles.btn} onPress={() => {}} />
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate('login')}>
               <Text>Already have account</Text>
             </TouchableOpacity>
           </>
         )}
       </View>
-    </KeyboardAwareScrollView>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   text: {
     fontSize: 22,
     color: 'green',

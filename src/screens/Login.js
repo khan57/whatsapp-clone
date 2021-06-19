@@ -9,12 +9,14 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview';
-export default function Signup() {
+export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  useEffect(() => {
+    // alert('login called');
+  }, []);
   return (
-    <KeyboardAwareScrollView>
+    <View style={styles.container}>
       <View style={styles.box1}>
         <Text style={styles.text}>Welcome to Whatsapp 5.0</Text>
         <Image
@@ -43,22 +45,19 @@ export default function Signup() {
           placeholder="Enter your password"
           autoCapitalize="none"
         />
-        <Button
-          title="Login"
-          style={styles.btn}
-          onPress={() => {
-            setShowNext(true);
-          }}
-        />
+        <Button title="Login" style={styles.btn} onPress={() => {}} />
         <TouchableOpacity>
           <Text>Dont have an account?</Text>
         </TouchableOpacity>
       </View>
-    </KeyboardAwareScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   text: {
     fontSize: 22,
     color: 'green',
